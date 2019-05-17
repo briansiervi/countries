@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.0.min.js"></script>
+    <script src="App.js"></script>
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <script>      
+      var app = null;
+
+      $( document ).ready(function() {
+        app = new App();
+        app.FetchAll();
+      });
+    </script>
+    <title>Countries</title>
+  </head>
+  <body>
+    <p id="counter"></p>
+    <table>
+      <tr>
+        <th>Name</th>
+      </tr>
+      <tbody id="countries">
+      </tbody>
+    </table>
+
+    <form action="javascript:void(0);" method="POST" onsubmit="app.Add();"> 
+      <input type="text" id="add-name" placeholder="New country">
+      <input type="submit" value="Add">
+    </form>
+
+    <div id="spoiler" role="aria-hidden">
+      <form action="javascript:void(0);" method="POST" id="saveEdit">
+      <input type="text" id="edit-name">
+      <input type="submit" value="Edit" /> <a onclick="app.CloseInput()" aria-label="Close">&#10006;</a>
+      </form>
+    </div>
+  </body>  
+</html>
